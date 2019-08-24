@@ -1,0 +1,23 @@
+{
+    "name": "genealabs/laravel-tawk",
+    "description": "Integrate Tawk.to into yoru Laravel and Nova apps.",
+    "type": "laravel-package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mike Bronner",
+            "email": "mike@genealabs.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "5.8.*",
+        "illuminate/view": "5.8.*"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "GeneaLabs\\LaravelTawk\\Providers\\Service"
+            ]
+        }
+    }
+}
