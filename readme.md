@@ -36,7 +36,7 @@ Add the following to your layout blade template immediately before the closing
 ### Laravel Nova
 If you are using Laravel Nova as a dashboard for your users, first publish the
 layout blade template, then insert the blade directive immediate prior to the
-closing `</body>` tag:
+closing `</body>` tag in `resources/views/vendor/nova/layout.blade.php`:
 ```php
             @tawk
 //      </body>
