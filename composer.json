@@ -13,6 +13,11 @@
         "illuminate/support": "5.8.*",
         "illuminate/view": "5.8.*"
     },
+    "autoload": {
+        "psr-4": {
+            "GeneaLabs\\LaravelTawk\\": "src/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
