@@ -1,6 +1,7 @@
-![laravel-tawk](https://user-images.githubusercontent.com/1791050/63641132-2f0b3580-c65e-11e9-8fba-8fa46196e85a.png)
-
 # Tawk for Laravel
+
+![Tawk for Laravel masthead image.](https://repository-images.githubusercontent.com/204191162/32612b80-f346-11e9-8bff-dca042a4ae5d)
+
 Easily and quickly integrate [Tawk.to]() LiveChat into your laravel app in under
 5 minutes!
 
