@@ -11,7 +11,19 @@ Easily and quickly integrate [Tawk.to]() LiveChat into your laravel app in under
 - secure chat API (for logged-in users).
 
 ## Requirements
-- Laravel 5.8+
+- PHP 8.0+
+- Laravel 8.x, 9.x, 10.x, 11.x, 12.x, or 13.x
+
+### Version Support
+
+| Laravel | Package |
+|---------|---------|
+| 8.x     | 1.x     |
+| 9.x     | 1.x     |
+| 10.x    | 1.x     |
+| 11.x    | 1.x     |
+| 12.x    | 1.x     |
+| 13.x    | 1.x     |
 
 ## Installation
 ```sh
