@@ -24,6 +24,11 @@
 <?php echo file_get_contents(__DIR__ . '/js/tawk-console-capture.js'); ?>
 </script>
 <?php } ?>
+<?php if (config('services.tawk.capture-screenshot')) { ?>
+<script type="text/javascript">
+<?php echo file_get_contents(__DIR__ . '/js/tawk-screenshot.js'); ?>
+</script>
+<?php } ?>
 <?php } elseif (config('app.debug')) { ?>
 <!-- Tawk.to: TAWK_SITE_ID is not configured. Set TAWK_SITE_ID in your .env file. -->
 <?php } ?>
