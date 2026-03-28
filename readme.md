@@ -56,3 +56,18 @@ closing `</body>` tag in `resources/views/vendor/nova/layout.blade.php`:
 //      </body>
 // </html>
 ```
+
+
+### Console Capture
+To automatically send the visitor's browser console output (errors, warnings, logs) to Tawk.to when a chat starts, add the following to your `.env`:
+```
+TAWK_CAPTURE_CONSOLE=true
+```
+
+When enabled, the last 50 console entries are captured and sent as custom attributes when a visitor initiates a chat. This includes:
+- Console errors, warnings, and logs
+- Unhandled JavaScript errors
+- Unhandled promise rejections
+
+The data appears in the Tawk.to agent dashboard as custom visitor attributes.
+
