@@ -65,3 +65,17 @@ closing `</body>` tag in `resources/views/vendor/nova/layout.blade.php`:
 3. **Check the HTML source:** View your page source and look for the Tawk.to script tag. If it's missing entirely, the `@tawk` directive may not be in your layout. If it shows a comment about missing `TAWK_SITE_ID`, update your `.env`.
 4. **Check browser console:** Open the browser developer tools console for JavaScript errors.
 5. **Verify the directive placement:** The `@tawk` directive must be placed immediately before the closing `</body>` tag in your layout blade template.
+
+### Console Capture
+To automatically send the visitor's browser console output (errors, warnings, logs) to Tawk.to when a chat starts, add the following to your `.env`:
+```
+TAWK_CAPTURE_CONSOLE=true
+```
+
+When enabled, the last 50 console entries are captured and sent as custom attributes when a visitor initiates a chat. This includes:
+- Console errors, warnings, and logs
+- Unhandled JavaScript errors
+- Unhandled promise rejections
+
+The data appears in the Tawk.to agent dashboard as custom visitor attributes.
+
