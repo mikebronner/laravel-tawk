@@ -9,16 +9,21 @@
  * Requires html2canvas loaded on the page (loaded from CDN automatically).
  */
 (function() {
+    var html2canvasReady = false;
+
     // Load html2canvas from CDN
     var script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
     script.integrity = 'sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoFM/HPeLTC2BbQG0e2LOKKL7lXIA==';
     script.crossOrigin = 'anonymous';
     script.referrerPolicy = 'no-referrer';
+    script.onload = function() {
+        html2canvasReady = true;
+    };
     document.head.appendChild(script);
 
     function captureScreenshot(callback) {
-        if (typeof html2canvas === 'undefined') {
+        if (!html2canvasReady || typeof html2canvas === 'undefined') {
             callback(null);
             return;
         }
