@@ -57,6 +57,14 @@ closing `</body>` tag in `resources/views/vendor/nova/layout.blade.php`:
 // </html>
 ```
 
+## Troubleshooting
+
+### Blank page / Tawk widget not appearing
+1. **Check your `.env` values:** Ensure `TAWK_SITE_ID` and `TAWK_API_KEY` are set correctly. You can find these in your Tawk.to dashboard under Property Settings.
+2. **Clear config cache:** Run `php artisan config:clear` after updating `.env`.
+3. **Check the HTML source:** View your page source and look for the Tawk.to script tag. If it's missing entirely, the `@tawk` directive may not be in your layout. If it shows a comment about missing `TAWK_SITE_ID`, update your `.env`.
+4. **Check browser console:** Open the browser developer tools console for JavaScript errors.
+5. **Verify the directive placement:** The `@tawk` directive must be placed immediately before the closing `</body>` tag in your layout blade template.
 
 ### Console Capture
 To automatically send the visitor's browser console output (errors, warnings, logs) to Tawk.to when a chat starts, add the following to your `.env`:
