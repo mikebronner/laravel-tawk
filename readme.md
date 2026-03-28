@@ -18,10 +18,10 @@ Easily and quickly integrate [Tawk.to]() LiveChat into your laravel app in under
 
 | PHP | Laravel |
 |-----|---------|
-| 8.2 | 8.x – 11.x |
-| 8.3 | 8.x – 11.x |
-| 8.4 | 8.x – 11.x |
-| 8.5 | 8.x – 11.x |
+| 8.2 | 8.x – 13.x |
+| 8.3 | 8.x – 13.x |
+| 8.4 | 8.x – 13.x |
+| 8.5 | 8.x – 13.x |
 
 
 ## Installation
