@@ -11,9 +11,13 @@ class Service extends ServiceProvider
 
     public function boot()
     {
+        $resourcePath = realpath(__DIR__ . "/../../resources");
+
         $this->app->make(BladeCompiler::class)
-            ->directive("tawk", function () {
-                return file_get_contents(__DIR__ . "/../../resources/tawk.php");
+            ->directive("tawk", function () use ($resourcePath) {
+                $template = file_get_contents($resourcePath . "/tawk.php");
+
+                return str_replace('__DIR__', "'" . addslashes($resourcePath) . "'", $template);
             });
     }
 

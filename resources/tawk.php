@@ -19,9 +19,15 @@
                 s0.parentNode.insertBefore(s1,s0);
             })();
         </script>
-<?php if (config('services.tawk.capture-console')) { ?>
+<?php if (config('services.tawk.capture-console') && file_exists(__DIR__ . '/js/tawk-console-capture.js')) { ?>
 <script type="text/javascript">
 <?php echo file_get_contents(__DIR__ . '/js/tawk-console-capture.js'); ?>
+</script>
+<?php } ?>
+<?php if (config('services.tawk.capture-screenshot') && file_exists(__DIR__ . '/js/tawk-screenshot.js')) { ?>
+<script type="text/javascript">
+var tawkHtml2canvasUrl = '<?php echo e(config("services.tawk.html2canvas-url")); ?>';
+<?php echo file_get_contents(__DIR__ . '/js/tawk-screenshot.js'); ?>
 </script>
 <?php } ?>
 <?php } elseif (config('app.debug')) { ?>

@@ -79,3 +79,12 @@ When enabled, the last 50 console entries are captured and sent as custom attrib
 
 The data appears in the Tawk.to agent dashboard as custom visitor attributes.
 
+### Screenshot Capture
+To automatically take a screenshot of the page when a visitor starts a chat, add the following to your `.env`:
+```
+TAWK_CAPTURE_SCREENSHOT=true
+```
+
+When enabled, html2canvas (loaded from CDN) captures the visible page and sends it as a Tawk.to custom attribute. The screenshot appears in the agent dashboard as a base64 JPEG image.
+
+**Note:** Screenshots are compressed (50% scale, 60% JPEG quality) to stay within Tawk.to's attribute size limits. Very large pages may exceed the limit and the screenshot will be skipped.

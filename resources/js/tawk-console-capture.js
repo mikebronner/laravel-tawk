@@ -59,7 +59,11 @@
 
     // Send console logs when Tawk chat starts
     if (typeof Tawk_API !== 'undefined') {
+        var previousOnChatStarted = Tawk_API.onChatStarted;
         Tawk_API.onChatStarted = function() {
+            if (typeof previousOnChatStarted === 'function') {
+                previousOnChatStarted();
+            }
             if (consoleLogs.length === 0) return;
 
             var errors = consoleLogs.filter(function(l) { return l.level === 'error'; });
