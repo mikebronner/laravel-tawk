@@ -11,10 +11,17 @@
 (function() {
     var html2canvasReady = false;
 
-    // Load html2canvas from CDN
+    // Load html2canvas from CDN (URL configurable via TAWK_HTML2CANVAS_URL)
+    var cdnUrl = (typeof tawkHtml2canvasUrl !== 'undefined' && tawkHtml2canvasUrl)
+        ? tawkHtml2canvasUrl
+        : 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+    var isDefaultCdn = cdnUrl.indexOf('cdnjs.cloudflare.com') !== -1;
+
     var script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
-    script.integrity = 'sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoFM/HPeLTC2BbQG0e2LOKKL7lXIA==';
+    script.src = cdnUrl;
+    if (isDefaultCdn) {
+        script.integrity = 'sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoFM/HPeLTC2BbQG0e2LOKKL7lXIA==';
+    }
     script.crossOrigin = 'anonymous';
     script.referrerPolicy = 'no-referrer';
     script.onload = function() {
@@ -49,7 +56,11 @@
     }
 
     if (typeof Tawk_API !== 'undefined') {
+        var previousOnChatStarted = Tawk_API.onChatStarted;
         Tawk_API.onChatStarted = function() {
+            if (typeof previousOnChatStarted === 'function') {
+                previousOnChatStarted();
+            }
             captureScreenshot(function(dataUrl) {
                 if (!dataUrl) return;
 
